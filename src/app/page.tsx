@@ -33,7 +33,7 @@ export default function Sign() {
   }
 
   const openBeangotown = () => {
-    window.Telegram.WebApp.openTelegramLink('t.me/xiaoshitouGameBot/xiaoshitou_test_bg');
+    window.Telegram.WebApp.openTelegramLink('https://t.me/xiaoshitouGameBot/xiaoshitou_test_bg');
   }
 
   const close = () => {
