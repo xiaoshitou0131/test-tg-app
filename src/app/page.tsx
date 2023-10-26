@@ -13,33 +13,45 @@ export default function Sign() {
 
   const getTgConfig = () => {
     setTgData(window.Telegram);
-    window.Telegram.WebApp.ready((res:any) => {
-      window.Telegram.WebApp.sendData({
+    // window.Telegram.WebApp.ready((res:any) => {
+    //   window.Telegram.WebApp.sendData({
 
-      })
-    })
+    //   })
+    // })
   }
 
   const expandApp = () => {
-    // window.Telegram.WebApp.expand();
-    document.documentElement.style.setProperty('--tg-viewport-height', '100px');
+    window.Telegram.WebApp.expand();
+    // document.documentElement.style.setProperty('--tg-viewport-height', '100px');
     // window.Telegram.WebApp.expand();
     // setTimeout(() => {
     //   // window.Telegram.WebApp.showAlert(`页面高度$}`)
     // }, 500)
   }
 
+  const openAwaken = () => {
+    window.Telegram.WebApp.openLink('https://www.awaken.finance/trading');
+  }
+
+  const openBeangotown = () => {
+    window.Telegram.WebApp.openTelegramLink('https://www.beangotown.com/login');
+  }
+
+  const close = () => {
+    window.Telegram.WebApp.close();
+  }
+
   return (
     <div>
       <h1>TG SDK</h1>
-      <Button onClick={getTgConfig}>获取 TG 配置</Button>
-      <Button onClick={expandApp}>扩大</Button>
+      <Button type='primary' onClick={getTgConfig}>获取 TG 配置</Button>
+      <Button type='primary' onClick={expandApp}>扩大小程序</Button>
       <br />
       {JSON.stringify(tgData)}
       <br />
-      <h1>
-        TG ready 数据
-      </h1>
+      <Button type='primary' onClick={openAwaken}>在浏览器中打开Awaken</Button>
+      <Button type='primary' onClick={openBeangotown}>打开beangotown</Button>
+      <Button type='primary' onClick={close}>关闭小程序</Button>
     </div>
     
     
