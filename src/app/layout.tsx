@@ -5,6 +5,7 @@ import './globals.css';
 import Script from 'next/script'
 import { Inter } from 'next/font/google';
 import AntdRegistry from '../components/AntdRegistry';
+import VConsole from 'vconsole';
 
 
 
