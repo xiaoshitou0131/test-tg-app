@@ -5,14 +5,13 @@ import { Button } from 'antd';
 export default function Sign() {
 
   const [tgData, setTgData] = useState({});
-  const [tgReadyData, setTgReadyData] = useState({});
 
   useEffect(() => {
     console.log(window.Telegram)
   }, [])
 
   const getTgConfig = () => {
-    setTgData(window.Telegram);
+    setTgData(window.Telegram.WebApp);
     // window.Telegram.WebApp.ready((res:any) => {
     //   window.Telegram.WebApp.sendData({
 
