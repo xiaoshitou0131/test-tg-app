@@ -14,24 +14,27 @@ export default function Sign() {
   const getTgConfig = () => {
     setTgData(window.Telegram);
     window.Telegram.WebApp.ready((res:any) => {
-      console.log('res:', res)
-      setTgReadyData(res);
+      window.Telegram.WebApp.sendData({
+
+      })
     })
+  }
+
+  const expandApp = () => {
+    window.Telegram.WebApp.expand();
   }
 
   return (
     <div>
       <h1>TG SDK</h1>
       <Button onClick={getTgConfig}>获取 TG 配置</Button>
+      <Button onClick={expandApp}>扩大</Button>
       <br />
       {JSON.stringify(tgData)}
       <br />
       <h1>
         TG ready 数据
       </h1>
-      <p>
-        {JSON.stringify(tgReadyData)}
-      </p>
     </div>
     
     
