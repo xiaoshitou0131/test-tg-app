@@ -22,8 +22,8 @@ export default function Sign() {
 
   const expandApp = () => {
     // window.Telegram.WebApp.expand();
-    document.documentElement.style.setProperty('--tg-viewport-height', '300px');
-
+    document.documentElement.style.setProperty('--tg-viewport-height', '100px');
+    // window.Telegram.WebApp.expand();
     // setTimeout(() => {
     //   // window.Telegram.WebApp.showAlert(`页面高度$}`)
     // }, 500)
