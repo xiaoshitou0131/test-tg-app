@@ -1,9 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from 'antd';
-
-
-// const vConsole = new VConsole();
 export default function Sign() {
 
   const [tgData, setTgData] = useState({});
@@ -14,10 +11,9 @@ export default function Sign() {
 
   const getTgConfig = () => {
     setTgData(window.Telegram);
-    // window.Telegram.WebApp.ready(() => {
-    //   console.log('ready')
-    //   setTgData(window.Telegram);
-    // })
+    window.Telegram.WebApp.ready((res:any) => {
+      console.log('res:', res)
+    })
   }
 
   return (
