@@ -1,7 +1,9 @@
 interface Window {
   Telegram: {
     WebView: {},
-    WebApp: {},
+    WebApp: {
+      ready: Function
+    },
     Utils: {},
   }
 }
