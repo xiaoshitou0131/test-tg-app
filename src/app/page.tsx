@@ -44,7 +44,7 @@ export default function Sign() {
     <div>
       <h1>TG SDK</h1>
       <Button type='primary' onClick={getTgConfig}>获取 TG 配置</Button>
-      <Button type='primary' onClick={expandApp}>扩大小程序</Button>
+      <Button type='primary' onClick={expandApp}>扩大小程序（仅移动端生效）</Button>
       <br />
       {JSON.stringify(tgData)}
       <br />
