@@ -13,16 +13,18 @@ export default function Sign() {
   }, [])
 
   const getTgConfig = () => {
-    window.Telegram.WebApp.ready(() => {
-      console.log('ready')
-      setTgData(window.Telegram);
-    })
+    setTgData(window.Telegram);
+    // window.Telegram.WebApp.ready(() => {
+    //   console.log('ready')
+    //   setTgData(window.Telegram);
+    // })
   }
 
   return (
     <div>
       <h1>TG SDK</h1>
       <Button onClick={getTgConfig}>获取 TG 配置</Button>
+      <br />
       {JSON.stringify(tgData)}
     </div>
     
