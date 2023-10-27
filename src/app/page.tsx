@@ -6,10 +6,12 @@ export default function Sign() {
 
   const [tgData, setTgData] = useState({});
   const [userAgent, setUserAgent] = useState('');
+  const [location, setLocation] = useState({});
 
   useEffect(() => {
     // console.log(window.Telegram)
     setUserAgent(window.navigator.userAgent);
+    setLocation(window.location);
   }, [])
 
   const getTgConfig = () => {
@@ -55,8 +57,11 @@ export default function Sign() {
       <Divider />
       <Button type='primary' onClick={close}>关闭小程序</Button>
       <Button type='primary'>打开弹窗</Button>
-
+      <h1>userAgent</h1>
       <p>{userAgent}</p>
+      <h1>location</h1>
+      <p>{JSON.stringify(location)}</p>
+
     </div>
     
     
