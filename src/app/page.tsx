@@ -5,9 +5,11 @@ import { Button, Divider } from 'antd';
 export default function Sign() {
 
   const [tgData, setTgData] = useState({});
+  const [userAgent, setUserAgent] = useState('');
 
   useEffect(() => {
-    console.log(window.Telegram)
+    // console.log(window.Telegram)
+    setUserAgent(window.navigator.userAgent);
   }, [])
 
   const getTgConfig = () => {
@@ -54,7 +56,7 @@ export default function Sign() {
       <Button type='primary' onClick={close}>关闭小程序</Button>
       <Button type='primary'>打开弹窗</Button>
 
-      <p>{navigator.userAgent}</p>
+      <p>{userAgent}</p>
     </div>
     
     
