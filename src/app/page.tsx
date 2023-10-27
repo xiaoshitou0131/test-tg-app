@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { Button } from 'antd';
+import { Button, Divider } from 'antd';
 
 export default function Sign() {
 
@@ -45,12 +45,16 @@ export default function Sign() {
       <h1>TG SDK</h1>
       <Button type='primary' onClick={getTgConfig}>获取 TG 配置</Button>
       <Button type='primary' onClick={expandApp}>扩大小程序（仅移动端生效）</Button>
-      <br />
+
       {JSON.stringify(tgData)}
-      <br />
+      <Divider />
       <Button type='primary' onClick={openAwaken}>在浏览器中打开Awaken</Button>
       <Button type='primary' onClick={openBeangotown}>打开beangotown</Button>
+      <Divider />
       <Button type='primary' onClick={close}>关闭小程序</Button>
+      <Button type='primary'>打开弹窗</Button>
+
+      <p>{navigator.userAgent}</p>
     </div>
     
     
