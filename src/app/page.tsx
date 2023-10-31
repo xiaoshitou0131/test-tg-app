@@ -5,11 +5,11 @@ import { Button, Divider } from 'antd';
 export default function Sign() {
 
   const [tgData, setTgData] = useState({});
-  const [userAgent, setUserAgent] = useState({});
+  const [userAgent, setUserAgent] = useState('');
   const [location, setLocation] = useState({});
 
   useEffect(() => {
-    setUserAgent(window.navigator);
+    setUserAgent(window.navigator.userAgent);
     setLocation(window.location);
   }, [])
 
@@ -48,7 +48,7 @@ export default function Sign() {
       <Button type='primary'>打开弹窗</Button>
       <Divider />
       <h1>userAgent</h1>
-      <p>{JSON.stringify(userAgent)}</p>
+      <p>{userAgent}</p>
       <Divider />
       <h1>location</h1>
       <p>{JSON.stringify(location)}</p>
