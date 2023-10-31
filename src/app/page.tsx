@@ -5,31 +5,20 @@ import { Button, Divider } from 'antd';
 export default function Sign() {
 
   const [tgData, setTgData] = useState({});
-  const [userAgent, setUserAgent] = useState('');
+  const [userAgent, setUserAgent] = useState({});
   const [location, setLocation] = useState({});
 
   useEffect(() => {
-    // console.log(window.Telegram)
-    setUserAgent(window.navigator.userAgent);
+    setUserAgent(window.navigator);
     setLocation(window.location);
   }, [])
 
   const getTgConfig = () => {
     setTgData(window.Telegram.WebApp);
-    // window.Telegram.WebApp.ready((res:any) => {
-    //   window.Telegram.WebApp.sendData({
-
-    //   })
-    // })
   }
 
   const expandApp = () => {
     window.Telegram.WebApp.expand();
-    // document.documentElement.style.setProperty('--tg-viewport-height', '100px');
-    // window.Telegram.WebApp.expand();
-    // setTimeout(() => {
-    //   // window.Telegram.WebApp.showAlert(`页面高度$}`)
-    // }, 500)
   }
 
   const openAwaken = () => {
@@ -57,11 +46,12 @@ export default function Sign() {
       <Divider />
       <Button type='primary' onClick={close}>关闭小程序</Button>
       <Button type='primary'>打开弹窗</Button>
+      <Divider />
       <h1>userAgent</h1>
-      <p>{userAgent}</p>
+      <p>{JSON.stringify(userAgent)}</p>
+      <Divider />
       <h1>location</h1>
       <p>{JSON.stringify(location)}</p>
-
     </div>
     
     
