@@ -29,6 +29,8 @@ export default function RootLayout({
         <Script strategy="lazyOnload" id="login-telegram">
           {`function onTelegramAuth(user) { console.log('login response :', user)}`}
         </Script>
+
+        <Script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="xiaoshitou_test_bot" data-size="small" data-auth-url="https://test-tg-app.vercel.app/" data-request-access="write"></Script>
       </head>
       <body className={inter.className}>
         <AntdRegistry>
