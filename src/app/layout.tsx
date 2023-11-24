@@ -25,6 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script src="https://telegram.org/js/telegram-web-app.js"/>
+        <Script strategy="lazyOnload" src="https://telegram.org/js/telegram-widget.js?14" data-telegram-login="lifetifulBot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></Script>
+        <Script strategy="lazyOnload" id="login-telegram">
+          {`function onTelegramAuth(user) { console.log('login response :', user)}`}
+        </Script>
       </head>
       <body className={inter.className}>
         <AntdRegistry>
