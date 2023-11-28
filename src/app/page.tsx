@@ -1,15 +1,16 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Button, Divider } from 'antd';
 
 export default function Sign() {
 
   const [tgData, setTgData] = useState({});
-  const [userAgent, setUserAgent] = useState('');
+  // const [userAgent, setUserAgent] = useState('');
   const [location, setLocation] = useState({});
 
   useEffect(() => {
-    setUserAgent(window.navigator.userAgent);
+    // setUserAgent(window.navigator.userAgent);
+    console.log(JSON.stringify(window.location, null, 4))
     setLocation(window.location);
   }, [])
 
@@ -33,6 +34,8 @@ export default function Sign() {
     window.Telegram.WebApp.close();
   }
 
+  const jsonStr = useMemo(() => JSON.stringify(location, null, 2), [location])
+
   return (
     <div>
       <h1>TG SDK</h1>
@@ -46,12 +49,12 @@ export default function Sign() {
       <Divider />
       <Button type='primary' onClick={close}>关闭小程序</Button>
       <Button type='primary'>打开弹窗</Button>
-      <Divider />
-      <h1>userAgent</h1>
-      <p>{userAgent}</p>
+      {/* <Divider /> */}
+      {/* <h1>userAgent</h1> */}
+      {/* <p>{userAgent}</p> */}
       <Divider />
       <h1>location</h1>
-      <p>{JSON.stringify(location)}</p>
+      <p>{jsonStr}</p>
     </div>
     
     

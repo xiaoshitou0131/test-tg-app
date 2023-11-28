@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="xiaoshitou_test_bot" data-size="large" data-auth-url="https://test-tg-app.vercel.app/" data-request-access="write"></Script>
+        <Script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="xiaoshitou_test_bot" data-size="large" data-auth-url="https://test-tg-server.vercel.app/auth/callback" data-request-access="write"></Script>
       </head>
       <body className={inter.className}>
       </body>
