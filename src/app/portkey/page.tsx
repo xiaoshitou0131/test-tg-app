@@ -13,17 +13,22 @@ export default function Sign() {
       return null;
     }
 
-    const data: any = JSON.parse(
-      decodeURIComponent(searchParams.get("tgWebAppStartParam"))
-    );
+    const obj: any = {};
+    searchParams
+      .get("tgWebAppStartParam")
+      .split("_")
+      .forEach((item: any) => {
+        const [key, value] = item.split("-");
+        obj[key] = value;
+      });
 
-    console.log("searchParams: ", data);
+    console.log("searchParams: ", obj);
 
     return (
       <>
         <h3>用户信息</h3>
         <br />
-        <span>userId: {data.userId}</span>
+        <span>userId: {obj.userId}</span>
       </>
     );
   }, [searchParams]);
@@ -43,10 +48,15 @@ export default function Sign() {
     //   JSON.stringify(res.data)
     // )}`;
 
+    const str = Object.entries(res.data).reduce((pre, item) => {
+      if (!pre) {
+        return `${item[0]}-${item[1]}`;
+      }
+      return `${pre}_${item[0]}-${item[1]}`;
+    }, "");
+
     window.Telegram.WebApp.openTelegramLink(
-      `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${encodeURIComponent(
-        JSON.stringify(res)
-      )}`
+      `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${str})`
     );
   };
 
