@@ -1,4 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+const rewrites = require("./rewrites");
 
-module.exports = nextConfig
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  consoleLog: true,
+  crossOrigin: "anonymous",
+  async rewrites() {
+    return rewrites;
+  },
+  compiler: {
+    removeConsole: false,
+  },
+};
+
+module.exports = nextConfig;

@@ -5,15 +5,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NEXT_PUBLIC_APP_ENV=prod next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.2",
     "antd": "^5.10.0",
+    "axios": "^1.6.4",
     "next": "13.4.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-use": "^17.4.2",
     "vconsole": "^3.15.1"
   },
   "devDependencies": {

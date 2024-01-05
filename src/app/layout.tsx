@@ -3,13 +3,12 @@
 import './globals.css';
 // import type { Metadata } from 'next';
 import Script from 'next/script'
-import { Inter } from 'next/font/google';
-import AntdRegistry from '../components/AntdRegistry';
-import VConsole from 'vconsole';
+// import { Inter } from 'next/font/google';
+import AntdRegistry from "../components/AntdRegistry";
 
 
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 // export const metadata: Metadata = {
 //   title: 'Create Next App',
@@ -24,13 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script src="https://telegram.org/js/telegram-web-app.js"/>
+        <Script src="https://telegram.org/js/telegram-web-app.js" />
       </head>
-      <body className={inter.className}>
-        <AntdRegistry>
-          {children}
-        </AntdRegistry>
+      <body>
+        <AntdRegistry>{children}</AntdRegistry>
       </body>
     </html>
-  )
+  );
 }
