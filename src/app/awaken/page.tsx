@@ -45,15 +45,15 @@ export default function Sign() {
       )
     );
 
-    location.href = `http://192.168.11.139:3001/portkey?tgWebAppStartParam=${encodeURIComponent(
-      JSON.stringify({ userId: params.id })
-    )}`;
+    // location.href = `http://192.168.11.139:3001/portkey?tgWebAppStartParam=${encodeURIComponent(
+    //   JSON.stringify({ userId: params.id })
+    // )}`;
 
-    // window.Telegram.WebApp.openTelegramLink(
-    //   `https://t.me/xiaoshitouGameBot/xiaoshitou_test_bg?startapp=${encodeURIComponent(
-    //     JSON.stringify({ userId: params.id })
-    //   )}`
-    // );
+    window.Telegram.WebApp.openTelegramLink(
+      `https://t.me/xiaoshitouGameBot/xiaoshitou_test_bg?startapp=${encodeURIComponent(
+        JSON.stringify({ userId: params.id })
+      )}`
+    );
   };
 
   return (

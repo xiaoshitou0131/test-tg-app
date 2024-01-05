@@ -39,15 +39,15 @@ export default function Sign() {
 
     console.log("res: ", res.data);
 
-    location.href = `http://192.168.11.139:3001/awaken?tgWebAppStartParam=${encodeURIComponent(
-      JSON.stringify(res.data)
-    )}`;
+    // location.href = `http://192.168.11.139:3001/awaken?tgWebAppStartParam=${encodeURIComponent(
+    //   JSON.stringify(res.data)
+    // )}`;
 
-    // window.Telegram.WebApp.openTelegramLink(
-    //   `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${encodeURIComponent(
-    //     JSON.stringify(res)
-    //   )}`
-    // );
+    window.Telegram.WebApp.openTelegramLink(
+      `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${encodeURIComponent(
+        JSON.stringify(res)
+      )}`
+    );
   };
 
   return (
