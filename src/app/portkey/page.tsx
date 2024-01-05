@@ -45,9 +45,12 @@ export default function Sign() {
 
     console.log("searchParams: ", obj);
 
-    const res: any = await axios.get("/tg/getAccessToken", {
-      params: obj,
-    });
+    const res: any = await axios.get(
+      "https://test-tg-server.vercel.app/tg/getAccessToken",
+      {
+        params: obj,
+      }
+    );
 
     console.log("res: ", res.data);
 

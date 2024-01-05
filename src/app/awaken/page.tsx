@@ -24,9 +24,12 @@ export default function Sign() {
 
     console.log("searchParams: ", obj);
 
-    const response: any = await axios.post("/tg/auth/token", {
-      userId: obj.userId,
-    });
+    const response: any = await axios.post(
+      "https://test-tg-server.vercel.app/tg/auth/token",
+      {
+        userId: obj.userId,
+      }
+    );
 
     return (
       <>
