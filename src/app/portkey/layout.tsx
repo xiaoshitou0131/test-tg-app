@@ -1,4 +1,5 @@
 "use client";
+import AntdRegistry from "@/components/AntdRegistry";
 import Script from "next/script";
 
 export default function RootLayout({
@@ -11,7 +12,9 @@ export default function RootLayout({
       <head>
         <Script src="https://telegram.org/js/telegram-web-app.js" />
       </head>
-      <body>{children}</body>
+      <body>
+        <AntdRegistry>{children}</AntdRegistry>
+      </body>
     </html>
   );
 }
