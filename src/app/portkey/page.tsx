@@ -61,9 +61,11 @@ export default function Sign() {
       return `${pre}_${item[0]}-${item[1]}`;
     }, "");
 
-    window.Telegram.WebApp.openTelegramLink(
-      `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${str})`
-    );
+    console.log("str: ", str);
+
+    // window.Telegram.WebApp.openTelegramLink(
+    //   `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${str})`
+    // );
   };
 
   return (
