@@ -34,19 +34,22 @@ export default function Sign() {
   }, [searchParams]);
 
   const doLogin = async () => {
-    const data: any = JSON.parse(
-      decodeURIComponent(searchParams.get("tgWebAppStartParam"))
-    );
+    const obj: any = {};
+    searchParams
+      .get("tgWebAppStartParam")
+      .split("_")
+      .forEach((item: any) => {
+        const [key, value] = item.split("-");
+        obj[key] = value;
+      });
+
+    console.log("searchParams: ", obj);
 
     const res: any = await axios.get("/tg/getAccessToken", {
-      params: data,
+      params: obj,
     });
 
     console.log("res: ", res.data);
-
-    // location.href = `http://192.168.11.139:3001/awaken?tgWebAppStartParam=${encodeURIComponent(
-    //   JSON.stringify(res.data)
-    // )}`;
 
     const str = Object.entries(res.data).reduce((pre, item) => {
       if (!pre) {

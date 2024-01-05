@@ -25,7 +25,7 @@ export default function Sign() {
     console.log("searchParams: ", obj);
 
     const response: any = await axios.post("/tg/auth/token", {
-      userId: "12345678",
+      userId: obj.userId,
     });
 
     return (
