@@ -62,7 +62,7 @@ export default function Sign() {
   };
 
   return (
-    <>
+    <div>
       <h1>Awaken 小程序</h1>
 
       <Button type="primary" size="large" onClick={doLogin}>
@@ -71,6 +71,6 @@ export default function Sign() {
 
       <hr />
       {status.value}
-    </>
+    </div>
   );
 }

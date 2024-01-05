@@ -75,7 +75,7 @@ export default function Sign() {
   };
 
   return (
-    <>
+    <div>
       <h1>PortKet 小程序</h1>
       <Button type="primary" onClick={getAccessToken}>
         获取Token
@@ -86,6 +86,6 @@ export default function Sign() {
       </Button>
       <hr />
       {userInfo}
-    </>
+    </div>
   );
 }
