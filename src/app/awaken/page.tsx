@@ -15,10 +15,8 @@ export default function Sign() {
     }
     const data: any = JSON.parse(decodeURIComponent(logininfo));
 
-    console.log("data: ", data);
-
     const response: any = await axios.post("/tg/auth/token", {
-      userId: "1234",
+      userId: "12345678",
     });
 
     return (
@@ -37,13 +35,13 @@ export default function Sign() {
   }, [logininfo]);
 
   const doLogin = () => {
-    const params = JSON.parse(
-      decodeURIComponent(
-        decodeURIComponent(location.hash.split("#")[1])
-          .split("&")[0]
-          .split("=")[2]
-      )
-    );
+    // const params = JSON.parse(
+    //   decodeURIComponent(
+    //     decodeURIComponent(location.hash.split("#")[1])
+    //       .split("&")[0]
+    //       .split("=")[2]
+    //   )
+    // );
 
     // location.href = `http://192.168.11.139:3001/portkey?tgWebAppStartParam=${encodeURIComponent(
     //   JSON.stringify({ userId: params.id })
@@ -51,7 +49,7 @@ export default function Sign() {
 
     window.Telegram.WebApp.openTelegramLink(
       `https://t.me/xiaoshitouGameBot/xiaoshitou_test_bg?startapp=${encodeURIComponent(
-        JSON.stringify({ userId: params.id })
+        JSON.stringify({ userId: "12345678" })
       )}`
     );
   };
