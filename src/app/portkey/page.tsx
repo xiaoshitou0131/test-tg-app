@@ -1,11 +1,11 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { Button } from "antd";
 import { useSearchParams, useParams } from "next/navigation";
-import { useAsync } from "react-use";
 import axios from "axios";
 
 export default function Sign() {
+  const [info, setInfo] = useState<any>();
   const searchParams: any = useSearchParams();
 
   const userInfo = useMemo(() => {
@@ -29,11 +29,12 @@ export default function Sign() {
         <h3>用户信息</h3>
         <br />
         <span>userId: {obj.userId}</span>
+        <span>accessToken: {info?.accessToken ?? ""}</span>
       </>
     );
-  }, [searchParams]);
+  }, [info?.accessToken, searchParams]);
 
-  const doLogin = async () => {
+  const getAccessToken = async () => {
     const obj: any = {};
     searchParams
       .get("tgWebAppStartParam")
@@ -42,8 +43,6 @@ export default function Sign() {
         const [key, value] = item.split("-");
         obj[key] = value;
       });
-
-    console.log("searchParams: ", obj);
 
     const res: any = await axios.get(
       "https://test-tg-server.vercel.app/tg/getAccessToken",
@@ -54,14 +53,21 @@ export default function Sign() {
 
     console.log("res: ", res.data);
 
-    const str = Object.entries(res.data).reduce((pre, item) => {
+    setInfo(res.data);
+  };
+
+  const doLogin = async () => {
+    const str = Object.entries(info).reduce((pre, item) => {
       if (!pre) {
         return `${item[0]}-${item[1]}`;
       }
       return `${pre}_${item[0]}-${item[1]}`;
     }, "");
 
-    console.log("str: ", str);
+    console.log(
+      "url: ",
+      `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${str})`
+    );
 
     window.Telegram.WebApp.openTelegramLink(
       `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${str})`
@@ -71,15 +77,13 @@ export default function Sign() {
   return (
     <>
       <h1>PortKet 小程序</h1>
-      <Button
-        type="primary"
-        size="large"
-        onClick={doLogin}
-        disabled={!userInfo}
-      >
-        授权登录
+      <Button type="primary" onClick={getAccessToken}>
+        获取Token
       </Button>
 
+      <Button type="primary" onClick={doLogin} disabled={!info}>
+        授权登录
+      </Button>
       <hr />
       {userInfo}
     </>
