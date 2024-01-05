@@ -70,7 +70,7 @@ export default function Sign() {
     );
 
     // window.Telegram.WebApp.openTelegramLink(
-    //   `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${str})`
+    //   `https://t.me/xiaoshitou_test_bot/xiaoshitou_test_app?startapp=${str}`
     // );
   };
 
