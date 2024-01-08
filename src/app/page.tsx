@@ -36,10 +36,6 @@ export default function Sign() {
     window.Telegram.WebApp.close();
   };
 
-  const doLogin = () => {
-    axios.get("/login/X");
-  };
-
   const jsonStr = useMemo(() => JSON.stringify(location, null, 2), [location]);
 
   return (
@@ -68,11 +64,6 @@ export default function Sign() {
       <Divider />
       <h1>location</h1>
       <p>{jsonStr}</p>
-
-      <Divider />
-      <Button onClick={doLogin} type="primary">
-        推特登录
-      </Button>
     </div>
   );
 }

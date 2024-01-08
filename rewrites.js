@@ -11,7 +11,7 @@ if (process.env.NEXT_PUBLIC_APP_ENV === "prod") {
   rewrite = [
     {
       source: "/:path*",
-      destination: "http://192.168.11.139:6666/:path*",
+      destination: "http://192.168.11.149:6666/:path*",
     },
   ];
 }
