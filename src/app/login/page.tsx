@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function Sign() {
   const doLogin = () => {
-    axios.get("/login/X");
+    axios.get("https://test-tg-server.vercel.app/login/X");
   };
   return (
     <div>
