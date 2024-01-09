@@ -1,6 +1,6 @@
 "use client";
 import React, { useMemo } from "react";
-import { Button } from "antd";
+import { Button, Divider } from "antd";
 import { useSearchParams, useParams } from "next/navigation";
 import { useAsync } from "react-use";
 import axios from "axios";
@@ -71,6 +71,13 @@ export default function Sign() {
 
       <hr />
       {status.value}
+
+      <Divider />
+      <iframe
+        src="https://test-tg-app.vercel.app/login"
+        width={400}
+        height={600}
+      ></iframe>
     </div>
   );
 }
