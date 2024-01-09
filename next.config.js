@@ -5,10 +5,10 @@ const redirects = require("./redirects");
 const nextConfig = {
   consoleLog: true,
   crossOrigin: "anonymous",
-  // async rewrites() {
-  //   console.log("rewrites: ", rewrites);
-  //   return rewrites;
-  // },
+  async rewrites() {
+    console.log("rewrites: ", rewrites);
+    return rewrites;
+  },
   async redirects() {
     return redirects;
   },
