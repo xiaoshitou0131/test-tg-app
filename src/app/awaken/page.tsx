@@ -1,11 +1,12 @@
 "use client";
 import React, { useMemo } from "react";
 import { Button, Divider } from "antd";
-import { useSearchParams, useParams } from "next/navigation";
+import { useSearchParams, useParams, useRouter } from "next/navigation";
 import { useAsync } from "react-use";
 import axios from "axios";
 
 export default function Sign() {
+  const router = useRouter();
   const searchParams: any = useSearchParams();
   const logininfo = searchParams.get("tgWebAppStartParam");
 
@@ -71,6 +72,12 @@ export default function Sign() {
 
       <hr />
       {status.value}
+
+      <Divider />
+      <Button
+        type="primary"
+        onClick={() => router.push("/thirdLogin")}
+      ></Button>
 
       <Divider />
       <iframe
