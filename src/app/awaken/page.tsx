@@ -77,6 +77,7 @@ export default function Sign() {
         src="https://test-tg-app.vercel.app/login"
         width={400}
         height={600}
+        allow="*"
       ></iframe>
     </div>
   );
