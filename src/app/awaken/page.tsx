@@ -74,10 +74,13 @@ export default function Sign() {
       {status.value}
 
       <Divider />
-      <Button
-        type="primary"
-        onClick={() => router.push("/thirdLogin")}
-      ></Button>
+      <Button type="primary" onClick={() => router.push("/thirdLogin")}>
+        涛哥SDK登录
+      </Button>
+
+      <Button onClick={() => router.push("/login/X")} type="primary">
+        推特登录--直接邓丽
+      </Button>
 
       <Divider />
       <iframe
