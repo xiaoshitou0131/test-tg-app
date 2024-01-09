@@ -1,15 +1,13 @@
 "use client";
 import React from "react";
 import { Button } from "antd";
-import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function Sign() {
-  const doLogin = () => {
-    axios.get("/login/X");
-  };
+  const router = useRouter();
   return (
     <div>
-      <Button onClick={doLogin} type="primary">
+      <Button onClick={() => router.push("/login/X")} type="primary">
         推特登录
       </Button>
     </div>
