@@ -3,16 +3,16 @@ let redirect = [];
 if (process.env.NEXT_PUBLIC_APP_ENV === "prod") {
   redirect = [
     {
-      source: "/login/X",
-      destination: "https://test-tg-server.vercel.app/login/X",
+      source: "/login/getCode/:path*",
+      destination: "https://test-tg-server.vercel.app/login/getCode/:path*",
       permanent: true,
     },
   ];
 } else {
   redirect = [
     {
-      source: "/login/X",
-      destination: "http://192.168.11.149:6666/login/X",
+      source: "/login/getCode/:path*",
+      destination: "http://localhost:8888/login/login/getCode/:path*",
       permanent: true,
     },
   ];
