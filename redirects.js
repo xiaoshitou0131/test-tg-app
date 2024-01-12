@@ -12,7 +12,7 @@ if (process.env.NEXT_PUBLIC_APP_ENV === "prod") {
   redirect = [
     {
       source: "/login/getCode/:path*",
-      destination: "http://localhost:8888/login/login/getCode/:path*",
+      destination: "http://localhost:8888/login/getCode/:path*",
       permanent: true,
     },
   ];
