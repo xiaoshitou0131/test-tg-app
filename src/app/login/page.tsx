@@ -8,8 +8,8 @@ export default function Sign() {
 
   return (
     <div>
-      <Button onClick={() => router.push("/login/getCode/X")} type="primary">
-        推特登录
+      <Button onClick={() => router.push("/login/getCode/x")} type="primary">
+        X（推特） 登录
       </Button>
       <Divider />
       <Button
@@ -20,10 +20,42 @@ export default function Sign() {
       </Button>
       <Divider />
       <Button
-        onClick={() => router.push("/login/getCode/Twitch")}
+        onClick={() => router.push("/login/getCode/twitch")}
         type="primary"
       >
         Twitch 登录
+      </Button>
+      <Divider />
+      <Button
+        onClick={() => router.push("/login/getCode/discord")}
+        type="primary"
+      >
+        Discord 登录
+      </Button>
+      <Divider />
+      <Button
+        onClick={() => router.push("/login/getCode/reddit")}
+        type="primary"
+      >
+        Reddit 登录
+      </Button>
+      <Divider />
+      <Button onClick={() => router.push("/login/getCode/line")} type="primary">
+        Line 登录
+      </Button>
+      <Divider />
+      <Button
+        onClick={() => router.push("/login/getCode/kakaoTalk")}
+        type="primary"
+      >
+        KakaoTalk 登录
+      </Button>
+      <Divider />
+      <Button
+        onClick={() => router.push("/login/getCode/tiktok")}
+        type="primary"
+      >
+        Tiktok 登录
       </Button>
     </div>
   );
