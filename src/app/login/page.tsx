@@ -61,8 +61,7 @@ export default function Sign() {
           <Button
             onClick={() => {
               console.log(`/login/getCode/${key}`);
-              // router.push(`/login/getCode/${key}`);
-              router.push(`/login/getCode/x`);
+              router.push(`/login/getCode/${key}`);
             }}
             type="primary"
           >
