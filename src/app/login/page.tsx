@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 const loginList = [
   {
     key: "x",
-    name: "X（推特）",
+    name: "推特",
   },
   {
     key: "facebook",
@@ -42,17 +42,6 @@ export default function Sign() {
   const router = useRouter();
   const search = useSearchParams();
 
-  const [loginType, accessToken, status, refreshToken, tokenType] =
-    useMemo(() => {
-      return [
-        search.get("loginType"),
-        search.get("accessToken"),
-        search.get("status"),
-        search.get("refreshToken"),
-        search.get("tokenType"),
-      ];
-    }, [search]);
-
   return useMemo(
     () =>
       loginList.map(({ key, name }) => (
@@ -73,23 +62,29 @@ export default function Sign() {
               <Button
                 onClick={() => router.push(`/login/refreshToken/${key}`)}
                 type="primary"
-                disabled={!(loginType === key && accessToken)}
+                disabled={
+                  !(
+                    search.get("loginType") === key && search.get("accessToken")
+                  )
+                }
               >
                 {name} 刷新token
               </Button>
             </Col>
-            <Col flex={1}>
-              {loginType === key && `login status: ${status}`}
-              <br />
-              {loginType === key && `accessToken：${accessToken}`}
-              <br />
-              {loginType === key && `refreshToken: ${refreshToken}`}
-              <br />
-              {loginType === key && `tokenType: ${tokenType}`}
-            </Col>
+            {search.get("loginType") === key && (
+              <Col flex={1}>
+                login status: {search.get("status")}
+                <hr />
+                tokenType: ${search.get("tokenType")}
+                <hr />
+                accessToken: {search.get("accessToken")}
+                <hr />
+                refreshToken: {search.get("refreshToken")}
+              </Col>
+            )}
           </Row>
         </div>
       )),
-    [accessToken, loginType, refreshToken, router, status, tokenType]
+    [router, search]
   );
 }
