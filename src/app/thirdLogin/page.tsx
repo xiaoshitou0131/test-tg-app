@@ -1,28 +1,94 @@
 "use client";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useMemo } from "react";
+import { Button, Col, Divider, Row } from "antd";
+import { useRouter, useSearchParams } from "next/navigation";
+
+const loginList = [
+  {
+    key: "x",
+    name: "推特",
+  },
+  {
+    key: "facebook",
+    name: "Facebook",
+  },
+  {
+    key: "twitch",
+    name: "Twitch",
+  },
+  {
+    key: "discord",
+    name: "Discord",
+  },
+  {
+    key: "reddit",
+    name: "Reddit",
+  },
+  {
+    key: "line",
+    name: "Line",
+  },
+  {
+    key: "kakaoTalk",
+    name: "KakaoTalk",
+  },
+  {
+    key: "tiktok",
+    name: "Tiktok",
+  },
+];
 
 export default function Sign() {
-  const receiveMessage = useCallback((event: any) => {
-    console.log(event, "event===");
-  }, []);
+  const router = useRouter();
+  const search = useSearchParams();
 
-  useEffect(() => {
-    window.addEventListener("message", receiveMessage);
+  const rediriect = useCallback(
+    (key: string) => router.push(`/login/getCode/${key}`),
+    [router]
+  );
 
-    return () => {
-      window.removeEventListener("message", receiveMessage);
-    };
-  }, [receiveMessage]);
+  const refresh = useCallback(
+    (key: string) => router.push(`/login/refreshToken/${key}`),
+    [router]
+  );
 
-  return (
-    <div>
-      <h1>三方登录</h1>
-
-      <iframe
-        src="https://openlogin.portkey.finance/recaptcha?siteKey=6LfR_bElAAAAAJSOBuxle4dCFaciuu9zfxRQfQC0"
-        width="400"
-        height="600"
-      ></iframe>
-    </div>
+  return useMemo(
+    () =>
+      loginList.map(({ key, name }) => (
+        <div key={key}>
+          <Divider />
+          <Row align="middle">
+            <Col span={3}>
+              <Button onClick={() => rediriect(key)} type="primary">
+                {name} 登录
+              </Button>
+              <Divider />
+              <Button
+                onClick={() => refresh(key)}
+                type="primary"
+                disabled={
+                  !(
+                    search.get("loginType") === key && search.get("accessToken")
+                  )
+                }
+              >
+                {name} 刷新token
+              </Button>
+            </Col>
+            {search.get("loginType") === key && (
+              <Col flex={1}>
+                login status: {search.get("status")}
+                <hr />
+                tokenType: ${search.get("tokenType")}
+                <hr />
+                accessToken: {search.get("accessToken")}
+                <hr />
+                refreshToken: {search.get("refreshToken")}
+              </Col>
+            )}
+          </Row>
+        </div>
+      )),
+    [rediriect, refresh, search]
   );
 }

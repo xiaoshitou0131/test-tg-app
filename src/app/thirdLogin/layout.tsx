@@ -1,6 +1,4 @@
 "use client";
-import AntdRegistry from "@/components/AntdRegistry";
-import "../globals.css";
 
 export default function RootLayout({
   children,
@@ -9,9 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <AntdRegistry>{children}</AntdRegistry>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
