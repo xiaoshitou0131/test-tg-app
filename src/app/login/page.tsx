@@ -53,39 +53,43 @@ export default function Sign() {
       ];
     }, [search]);
 
-  return loginList.map(({ key, name }) => (
-    <div key={key}>
-      <Divider />
-      <Row align="middle">
-        <Col span={3}>
-          <Button
-            onClick={() => {
-              console.log(`/login/getCode/${key}`);
-              router.push(`/login/getCode/${key}`);
-            }}
-            type="primary"
-          >
-            {name} 登录
-          </Button>
+  return useMemo(
+    () =>
+      loginList.map(({ key, name }) => (
+        <div key={key}>
           <Divider />
-          <Button
-            onClick={() => router.push(`/login/refreshToken/${key}`)}
-            type="primary"
-            disabled={!(loginType === key && accessToken)}
-          >
-            {name} 刷新token
-          </Button>
-        </Col>
-        <Col flex={1}>
-          {loginType === key && `login status: ${status}`}
-          <br />
-          {loginType === key && `accessToken：${accessToken}`}
-          <br />
-          {loginType === key && `refreshToken: ${refreshToken}`}
-          <br />
-          {loginType === key && `tokenType: ${tokenType}`}
-        </Col>
-      </Row>
-    </div>
-  ));
+          <Row align="middle">
+            <Col span={3}>
+              <Button
+                onClick={() => {
+                  console.log(`/login/getCode/${key}`);
+                  router.push(`/login/getCode/${key}`);
+                }}
+                type="primary"
+              >
+                {name} 登录
+              </Button>
+              <Divider />
+              <Button
+                onClick={() => router.push(`/login/refreshToken/${key}`)}
+                type="primary"
+                disabled={!(loginType === key && accessToken)}
+              >
+                {name} 刷新token
+              </Button>
+            </Col>
+            <Col flex={1}>
+              {loginType === key && `login status: ${status}`}
+              <br />
+              {loginType === key && `accessToken：${accessToken}`}
+              <br />
+              {loginType === key && `refreshToken: ${refreshToken}`}
+              <br />
+              {loginType === key && `tokenType: ${tokenType}`}
+            </Col>
+          </Row>
+        </div>
+      )),
+    [accessToken, loginType, refreshToken, router, status, tokenType]
+  );
 }
