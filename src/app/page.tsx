@@ -4,12 +4,9 @@ import { Button, Divider } from "antd";
 
 export default function Sign() {
   const [tgData, setTgData] = useState({});
-  // const [userAgent, setUserAgent] = useState('');
   const [location, setLocation] = useState({});
 
   useEffect(() => {
-    // setUserAgent(window.navigator.userAgent);
-    console.log(JSON.stringify(window.location, null, 4));
     setLocation(window.location);
   }, []);
 
