@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Button, Divider } from 'antd';
-import axios from "axios";
+import { Button, Divider } from "antd";
 
 export default function Sign() {
   const [tgData, setTgData] = useState({});
